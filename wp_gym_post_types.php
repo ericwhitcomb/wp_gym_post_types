@@ -124,4 +124,60 @@ function wp_gym_instructor_post_type() {
 
 }
 add_action( 'init', 'wp_gym_instructor_post_type', 0 );
+
+// Register post type for testimonials
+function wp_gym_testimonial_post_type() {
+
+	$labels = array(
+		'name'                  => _x( 'Testimonials', 'Post Type General Name', 'wp_gym' ),
+		'singular_name'         => _x( 'Testimonial', 'Post Type Singular Name', 'wp_gym' ),
+		'menu_name'             => __( 'Testimonials', 'wp_gym' ),
+		'name_admin_bar'        => __( 'Testimonial', 'wp_gym' ),
+		'archives'              => __( 'Archive', 'wp_gym' ),
+		'attributes'            => __( 'Attributes', 'wp_gym' ),
+		'parent_item_colon'     => __( 'Parent Testimonial ', 'wp_gym' ),
+		'all_items'             => __( 'All Testimonials', 'wp_gym' ),
+		'add_new_item'          => __( 'Add Testimonial', 'wp_gym' ),
+		'add_new'               => __( 'Add Testimonial', 'wp_gym' ),
+		'new_item'              => __( 'New Testimonial', 'wp_gym' ),
+		'edit_item'             => __( 'Edit Testimonial', 'wp_gym' ),
+		'update_item'           => __( 'Update Testimonial', 'wp_gym' ),
+		'view_item'             => __( 'View Testimonial', 'wp_gym' ),
+		'view_items'            => __( 'View Testimonials', 'wp_gym' ),
+		'search_items'          => __( 'Search Testimonial', 'wp_gym' ),
+		'not_found'             => __( 'Not found in Trash', 'wp_gym' ),
+		'featured_image'        => __( 'Featured Image', 'wp_gym' ),
+		'set_featured_image'    => __( 'Save Featured Image', 'wp_gym' ),
+		'remove_featured_image' => __( 'Remove Featured Image', 'wp_gym' ),
+		'use_featured_image'    => __( 'Use as Featured Image', 'wp_gym' ),
+		'insert_into_item'      => __( 'Insert Into Testimonial', 'wp_gym' ),
+		'uploaded_to_this_item' => __( 'Add At Testimonial', 'wp_gym' ),
+		'items_list'            => __( 'Testimonial List', 'wp_gym' ),
+		'items_list_navigation' => __( 'Navigate toTestimonials', 'wp_gym' ),
+		'filter_items_list'     => __( 'Filter Testimonials', 'wp_gym' ),
+	);
+	$args = array(
+		'label'                 => __( 'Testimonials', 'wp_gym' ),
+		'description'           => __( 'Testimonials para el Sitio Web', 'wp_gym' ),
+		'labels'                => $labels,
+		'supports'              => array( 'title', 'editor', 'thumbnail' ),
+		'hierarchical'          => false,
+		'public'                => true,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+        'menu_position'         => 8,
+        'menu_icon'             => 'dashicons-editor-quote',
+		'show_in_admin_bar'     => true,
+		'show_in_nav_menus'     => true,
+		'can_export'            => true,
+		'has_archive'           => false,
+		'exclude_from_search'   => false,
+		'publicly_queryable'    => true,
+		'capability_type'       => 'page',
+    'show_in_rest'          => false // set to true to enable gutenberg
+	);
+	register_post_type( 'wp_gym_testimonials', $args );
+
+}
+add_action( 'init', 'wp_gym_testimonial_post_type', 0 );
 ?>
